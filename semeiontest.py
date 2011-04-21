@@ -1,6 +1,3 @@
-"""
-make a scatter plot with varying color and size arguments
-"""
 import matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
@@ -20,7 +17,7 @@ for line in range(16):
     # extract 16 pixels from each line (and convert each one to floats)
     img.append([float(pix) for pix in lineimg[line*16:(line*16 + 16)]])
 
-ax.imshow(img)
+ax.imshow(img, cmap=plt.gray())
 
 plt.show()
 
