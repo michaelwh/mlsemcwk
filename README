@@ -1,1 +1,9 @@
 Code for Machine Learning handwriting coursework
+
+Have tested on on Python 2.7
+
+Requires:
+	- python
+	- numpy
+	- matplotlib
+	- PyML

@@ -24,6 +24,8 @@ testinglabels = labels[:len(labels)/2:]
 trainingpymldata = PyML.VectorDataSet(trainingdatarows, L=traininglabels)
 testingpymldata = PyML.VectorDataSet(testingdatarows, L=testinglabels)
 
+
+
 #kernel = PyML.ker.Polynomial()
 kernel = PyML.ker.Linear()
 #svm = PyML.classifiers.multi.OneAgainstRest(PyML.SVM(kernel))
@@ -58,6 +60,7 @@ for mynumline in mynumimg:
         mynumrow.append(float(mynumpix))
         
 mynumpymldata = PyML.VectorDataSet([mynumrow])
+
 mynumresults = svm.test(mynumpymldata)
 
 print "MY NUM RESULT: " + str(mynumresults.getPredictedLabels()[0])
