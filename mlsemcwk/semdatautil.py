@@ -19,3 +19,11 @@ def convert_datarowlabel(datarowlabel):
     for i in range(len(datarowlabel)):
         if int(datarowlabel[i]) == 1:
             return str(i)
+        
+def convert_to_numeric_label(label):
+    i = 0
+    for lab in label:
+        if int(lab) == 1:
+            break
+        i += 1
+    return i
