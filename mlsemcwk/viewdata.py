@@ -78,14 +78,15 @@ class DataViewer(MatplotlibTkFigFrame):
         if self.currdatano > 0:
             self.show_data(self.currdatano - 1)
 
-
-fig = Figure()#figsize=(10,10))#, dpi=100)
-ax = fig.add_subplot(111)
-ax.set_title('Data')
-
-datarows, labels = semdatautil.get_sem_data('semeion.data')
-print labels
-print datarows[0]
-
-dataviewer = DataViewer(fig, ax, datarows, labels=labels)
+if __name__ == '__main__':
+    
+    fig = Figure()#figsize=(10,10))#, dpi=100)
+    ax = fig.add_subplot(111)
+    ax.set_title('Data')
+    
+    datarows, labels = semdatautil.get_sem_data('semeion.data')
+    print labels
+    print datarows[0]
+    
+    dataviewer = DataViewer(fig, ax, datarows, labels=labels)
 
