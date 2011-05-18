@@ -8,29 +8,25 @@ import matplotlib.mlab as mlab
 import matplotlib.cbook as cbook
 import random
 import math
+from collections import defaultdict
+import operator
 
-def k_nearest_get_class_color(point, points, k=5):
+
+def k_nearest_get_class_color(point, points, points_labels, k=5):
     dists = []
-    for p in points:
-        dists.append((math.sqrt(math.pow(p['x'] - point['x'],2) + math.pow(p['y'] - point['y'],2)), p))
+    for pin in range(len(points)):
+        dists.append((math.sqrt(math.sum((math.pow(points[pin][i] - point[i],2) for i in range(len(point))))), points_labels[pin]))
     dists.sort()
     # find class based on closest k neighbors
     i = 0
-    noa = 0
-    nob = 0
-    for dist, p in dists:
-        if p['class'] == 'a':
-            noa += 1
-        else:
-            nob += 1
+    classcount = defaultdict(int)
+    for dist, p_label in dists:
+        classcount[p_label] += 1
         if i >= k:
             break    
         i += 1
 
-    if noa > nob:
-        return 'b'
-    else:
-        return 'r'
+    return max(classcount.iteritems(), key=operator.itemgetter(1))[0]
 
 
 points = []

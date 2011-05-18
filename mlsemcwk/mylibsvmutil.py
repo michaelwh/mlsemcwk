@@ -95,6 +95,8 @@ if __name__ == "__main__":
     
     datarows, o_datalabels = semdatautil.get_sem_data('semeion.data')
     
+    print len(datarows)
+    
     # convert the data to numeric labels
     datalabels = [int(label) for label in o_datalabels]
     
@@ -145,7 +147,7 @@ if __name__ == "__main__":
     print "c", c_vals
     print "gamma", gamma_vals
     
-    redo = True
+    redo = False
     
     if redo == True:
         accs = np.zeros((len(c_vals), len(gamma_vals)))
@@ -187,6 +189,13 @@ if __name__ == "__main__":
     plt.clabel(cs, inline=1, fontsize=10)    
     cbar = plt.colorbar()
     cbar.set_label('Classification Accuracy (%)')
+    
+    
+    
+    
+
+    
+    
     
     plt.show()
 
