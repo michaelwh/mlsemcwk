@@ -138,7 +138,7 @@ if __name__ == "__main__":
     knn_predicted_labels = []
     correct = 0
     for i in range(len(testingdata)):
-        plab = myknn.k_nearest_get_class_color(testingdata[i], trainingdata, traininglabels, k=6)
+        plab = myknn.k_nearest_get_class_color(testingdata[i], trainingdata, traininglabels, k=5)
         knn_predicted_labels.append(plab)
         if plab == testinglabels[i]:
             correct += 1
